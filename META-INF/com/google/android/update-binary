@@ -58,6 +58,10 @@ if [ ! -e "$VENDOR" ]; then
     safeRunCommand "$SGDISKBIN $BLOCKDEV --change-name=26:vendor"
     ui_print "Done."
 else
+    safeRunCommand "mke2fs -t ext4 ${BLOCKDEV}p23"
+	safeRunCommand "mke2fs -t ext4 ${BLOCKDEV}p24"    
+    safeRunCommand "mke2fs -t ext4 ${BLOCKDEV}p25"   
+    safeRunCommand "mke2fs -t ext4 ${BLOCKDEV}p26"    
     ui_print "Found vendor partiton. Good!"
 fi
 
